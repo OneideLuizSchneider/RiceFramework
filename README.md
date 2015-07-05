@@ -37,20 +37,21 @@ Exemplos:
   
   
 **Insert**  
-                        Var
-                          Aluno: TAluno;
-                        begin
-                          Aluno := TAluno.Create();
-                          Aluno.Id := mongoObjectId;
-                          Aluno.Nome := dtsDadosNome.AsString;
-                          Aluno.Endereco := dtsDadosEndereco.AsString;
-                          Aluno.Matricula := dtsDadosMatricula.AsString;
-                          Aluno.Notas.Nota := dtsDadosNota.AsFloat;
-                        
-                          try
-                            TAlunoDAO.Insert<TAluno>(Aluno);
-                            showmessage('Aluno inserido!');
-                          except
-                            showmessage('Aluno não inserido!')
-                          end;
-                          Aluno.Free;
+
+        Var
+          Aluno: TAluno;
+        begin
+          Aluno := TAluno.Create();
+          Aluno.Id := mongoObjectId;
+          Aluno.Nome := dtsDadosNome.AsString;
+          Aluno.Endereco := dtsDadosEndereco.AsString;
+          Aluno.Matricula := dtsDadosMatricula.AsString;
+          Aluno.Notas.Nota := dtsDadosNota.AsFloat;
+        
+          try
+            TAlunoDAO.Insert<TAluno>(Aluno);
+            showmessage('Aluno inserido!');
+          except
+            showmessage('Aluno não inserido!')
+          end;
+          Aluno.Free;
