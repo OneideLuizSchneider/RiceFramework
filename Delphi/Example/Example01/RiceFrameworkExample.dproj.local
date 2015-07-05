@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/05/25 23:47:12.000.450,C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Project3.dproj=C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2015/05/26 23:13:36.000.058,C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Unit5.pas=C:\Projetos\RiceMongoFramework\Delphi\Rice.MongoFramework.ObjectToBson.pas</Transaction>
+    <Transaction>2015/05/26 23:41:42.000.781,C:\Projetos\RiceMongoFramework\Delphi\Rice.MongoFramework.ObjectToBson.pas=C:\Projetos\RiceMongoFramework\Delphi\Rice.MongoFramework.ObjectConversion.pas</Transaction>
+    <Transaction>2015/06/01 01:08:46.000.524,C:\Projetos\RiceFramework\Delphi\NoSQL4D\Rice.NoSQLBuilder4D.pas=C:\Projetos\RiceFramework\Delphi\NoSQL4D\NoSQLBuilder4D.pas</Transaction>
+    <Transaction>2015/06/10 00:07:57.000.624,C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Unit4.pas=C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Rice.Example.Aluno.Domain.pas</Transaction>
+    <Transaction>2015/06/10 00:08:18.000.735,C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Unit3.dfm=C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Rice.Example.View.dfm</Transaction>
+    <Transaction>2015/06/10 00:08:18.000.735,C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Unit3.pas=C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Rice.Example.View.pas</Transaction>
+    <Transaction>2015/06/10 00:08:38.000.638,C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Unit6.pas=C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Rice.Example.Aluno.DAO.pas</Transaction>
+    <Transaction>2015/06/10 00:09:22.000.259,C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\Project3.dproj=C:\Users\Oneide\Documents\Embarcadero\Studio\Projects\RiceFrameworkExample.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
