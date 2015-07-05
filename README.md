@@ -5,7 +5,7 @@ Onde como driver foi usado o TMongoWire.
 
 Exemplos:
 
-Classe TAluno, mas o nome da colecao no BD será 'aluno'. Pode-se notar que tambem esta anotada o IdField, que é anotado encima do campo que sera unico na base de dados.
+**Classe TAluno**
 
   [DocumentName('aluno')]
   TAluno = class(TGenericEntity)
@@ -27,7 +27,7 @@ Classe TAluno, mas o nome da colecao no BD será 'aluno'. Pode-se notar que tamb
     destructor Destroy; override;
   end;
 
-  
+ **DAO** 
   o DAO, que herda do genericDAO as opcoes de CRUD :
   
   type
@@ -35,8 +35,8 @@ Classe TAluno, mas o nome da colecao no BD será 'aluno'. Pode-se notar que tamb
   public
   end;
   
-  E por fim como persistir o dados:
   
+**Insert**  
 Var
   Aluno: TAluno;
 begin
