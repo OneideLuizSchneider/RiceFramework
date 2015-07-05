@@ -99,3 +99,11 @@ Exemplos:
            end;
            FreeAndNil(vObjetos);
         end;
+
+**GetByID**
+
+        Var
+          Aluno: TAluno;
+        begin
+          Aluno := TAlunoDAO.GetByID<TAluno>(dtsDadosId.AsString);
+        end;  
