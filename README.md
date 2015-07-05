@@ -55,3 +55,33 @@ Exemplos:
             showmessage('Aluno não inserido!')
           end;
           Aluno.Free;
+
+**Delete**
+
+        TAlunoDAO.Delete<TAluno>(dtsDadosId.AsString);
+        
+**Update**
+
+        Var
+          Aluno: TAluno;
+        begin
+        
+          Aluno := TAluno.Create();
+          Aluno.Id := dtsDadosId.AsString;
+          Aluno.Nome := dtsDadosNome.AsString;
+          Aluno.Endereco := dtsDadosEndereco.AsString;
+          Aluno.Matricula := dtsDadosMatricula.AsString;
+          Aluno.Notas.Nota := dtsDadosNota.AsFloat;
+        
+          try
+            TAlunoDAO.SaveOrUpdate(Aluno);
+            showmessage('Aluno inserido!');
+          except
+            showmessage('Aluno não inserido!')
+          end;
+        
+          Aluno.Free;
+          
+**GetAll**
+        
+        vObjetos := TAlunoDAO.GetAll<TAluno>();
