@@ -83,5 +83,19 @@ Exemplos:
           Aluno.Free;
           
 **GetAll**
-        
-        vObjetos := TAlunoDAO.GetAll<TAluno>();
+
+        var
+           vObjetos: TObjectList<TAluno>;
+        begin   
+           vObjetos := TAlunoDAO.GetAll<TAluno>();
+           for Aluno in vObjetos do
+                dtsDados.Insert;
+                dtsDadosId.AsString := Aluno.Id;
+                dtsDadosNome.AsString := Aluno.Nome;
+                dtsDadosMatricula.AsString := Aluno.Matricula;
+                dtsDadosEndereco.AsString := Aluno.Endereco;
+                dtsDadosNota.AsFloat := Aluno.Notas.Nota;
+                dtsDados.Post;
+           end;
+           FreeAndNil(vObjetos);
+        end;
