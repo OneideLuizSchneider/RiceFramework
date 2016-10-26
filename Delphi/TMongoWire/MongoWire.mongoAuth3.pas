@@ -25,7 +25,7 @@ type
 
 implementation
 
-uses SysUtils, bsonDoc, Variants;
+uses SysUtils, TMongoWire.bsonDoc, Variants;
 
 {$IF not Declared(RawByteString)}
 type
