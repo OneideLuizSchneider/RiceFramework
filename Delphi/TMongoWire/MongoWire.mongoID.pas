@@ -15,6 +15,9 @@ Date Update 25/05/2015
 }
 unit MongoWire.mongoID;
 
+{$D-}
+{$L-}
+
 interface
 
 function mongoObjectId:string;
@@ -61,7 +64,7 @@ begin
 end;
 
 procedure InitMongoObjectID;
-const 
+const
   KEY_WOW64_64KEY = $0100;
 var
   r:TRegistry;
@@ -105,3 +108,4 @@ end;
 initialization
   InitMongoObjectID;
 end.
+

@@ -1,14 +1,14 @@
 unit MongoWire.VBScript_RegExp_55_TLB;
 
 // ************************************************************************ //
-// WARNING                                                                    
-// -------                                                                    
-// The types declared in this file were generated from data read from a       
-// Type Library. If this type library is explicitly or indirectly (via        
-// another type library referring to this type library) re-imported, or the   
-// 'Refresh' command of the Type Library Editor activated while editing the   
-// Type Library, the contents of this file will be regenerated and all        
-// manual modifications will be lost.                                         
+// WARNING
+// -------
+// The types declared in this file were generated from data read from a
+// Type Library. If this type library is explicitly or indirectly (via
+// another type library referring to this type library) re-imported, or the
+// 'Refresh' command of the Type Library Editor activated while editing the
+// Type Library, the contents of this file will be regenerated and all
+// manual modifications will be lost.
 // ************************************************************************ //
 
 // PASTLWTR : 1.2
@@ -18,26 +18,26 @@ unit MongoWire.VBScript_RegExp_55_TLB;
 // Type Lib: C:\WINDOWS\System32\vbscript.dll\3 (1)
 // LIBID: {3F4DACA7-160D-11D2-A8E9-00104B365C9F}
 // LCID: 0
-// Helpfile: 
+// Helpfile:
 // HelpString: Microsoft VBScript Regular Expressions 5.5
-// DepndLst: 
+// DepndLst:
 //   (1) v2.0 stdole, (C:\WINDOWS\system32\STDOLE2.TLB)
 // ************************************************************************ //
-{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
+{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers.
 {$WARN SYMBOL_PLATFORM OFF}
 {$WRITEABLECONST ON}
 {$VARPROPSETTER ON}
 interface
 
 uses Windows, ActiveX, Classes, Graphics, OleServer, StdVCL, Variants;
-  
+
 
 // *********************************************************************//
-// GUIDS declared in the TypeLibrary. Following prefixes are used:        
-//   Type Libraries     : LIBID_xxxx                                      
-//   CoClasses          : CLASS_xxxx                                      
-//   DISPInterfaces     : DIID_xxxx                                       
-//   Non-DISP interfaces: IID_xxxx                                        
+// GUIDS declared in the TypeLibrary. Following prefixes are used:
+//   Type Libraries     : LIBID_xxxx
+//   CoClasses          : CLASS_xxxx
+//   DISPInterfaces     : DIID_xxxx
+//   Non-DISP interfaces: IID_xxxx
 // *********************************************************************//
 const
   // TypeLibrary Major and minor versions
@@ -60,7 +60,7 @@ const
 type
 
 // *********************************************************************//
-// Forward declaration of types defined in TypeLibrary                    
+// Forward declaration of types defined in TypeLibrary
 // *********************************************************************//
   IRegExp = interface;
   IRegExpDisp = dispinterface;
@@ -78,8 +78,8 @@ type
   ISubMatchesDisp = dispinterface;
 
 // *********************************************************************//
-// Declaration of CoClasses defined in Type Library                       
-// (NOTE: Here we map each CoClass to its Default Interface)              
+// Declaration of CoClasses defined in Type Library
+// (NOTE: Here we map each CoClass to its Default Interface)
 // *********************************************************************//
   RegExp = IRegExp2;
   Match = IMatch2;
@@ -302,11 +302,11 @@ type
   end;
 
 // *********************************************************************//
-// The Class CoRegExp provides a Create and CreateRemote method to          
-// create instances of the default interface IRegExp2 exposed by              
-// the CoClass RegExp. The functions are intended to be used by             
-// clients wishing to automate the CoClass objects exposed by the         
-// server of this typelibrary.                                            
+// The Class CoRegExp provides a Create and CreateRemote method to
+// create instances of the default interface IRegExp2 exposed by
+// the CoClass RegExp. The functions are intended to be used by
+// clients wishing to automate the CoClass objects exposed by the
+// server of this typelibrary.
 // *********************************************************************//
   CoRegExp = class
     class function Create: IRegExp2;
@@ -314,11 +314,11 @@ type
   end;
 
 // *********************************************************************//
-// The Class CoMatch provides a Create and CreateRemote method to          
-// create instances of the default interface IMatch2 exposed by              
-// the CoClass Match. The functions are intended to be used by             
-// clients wishing to automate the CoClass objects exposed by the         
-// server of this typelibrary.                                            
+// The Class CoMatch provides a Create and CreateRemote method to
+// create instances of the default interface IMatch2 exposed by
+// the CoClass Match. The functions are intended to be used by
+// clients wishing to automate the CoClass objects exposed by the
+// server of this typelibrary.
 // *********************************************************************//
   CoMatch = class
     class function Create: IMatch2;
@@ -326,11 +326,11 @@ type
   end;
 
 // *********************************************************************//
-// The Class CoMatchCollection provides a Create and CreateRemote method to          
-// create instances of the default interface IMatchCollection2 exposed by              
-// the CoClass MatchCollection. The functions are intended to be used by             
-// clients wishing to automate the CoClass objects exposed by the         
-// server of this typelibrary.                                            
+// The Class CoMatchCollection provides a Create and CreateRemote method to
+// create instances of the default interface IMatchCollection2 exposed by
+// the CoClass MatchCollection. The functions are intended to be used by
+// clients wishing to automate the CoClass objects exposed by the
+// server of this typelibrary.
 // *********************************************************************//
   CoMatchCollection = class
     class function Create: IMatchCollection2;
@@ -338,11 +338,11 @@ type
   end;
 
 // *********************************************************************//
-// The Class CoSubMatches provides a Create and CreateRemote method to          
-// create instances of the default interface ISubMatches exposed by              
-// the CoClass SubMatches. The functions are intended to be used by             
-// clients wishing to automate the CoClass objects exposed by the         
-// server of this typelibrary.                                            
+// The Class CoSubMatches provides a Create and CreateRemote method to
+// create instances of the default interface ISubMatches exposed by
+// the CoClass SubMatches. The functions are intended to be used by
+// clients wishing to automate the CoClass objects exposed by the
+// server of this typelibrary.
 // *********************************************************************//
   CoSubMatches = class
     class function Create: ISubMatches;
@@ -394,3 +394,4 @@ begin
 end;
 
 end.
+

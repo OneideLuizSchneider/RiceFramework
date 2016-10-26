@@ -297,7 +297,6 @@ object Form3: TForm3
     ResourceOptions.SilentMode = True
     UpdateOptions.AssignedValues = [uvCheckRequired]
     UpdateOptions.CheckRequired = False
-    AutoCommitUpdates = False
     Left = 96
     Top = 248
     object dtsDadosId: TStringField

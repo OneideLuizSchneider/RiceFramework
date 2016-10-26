@@ -19,7 +19,7 @@ uses
   Rice.MongoFramework.ObjectConversion in '..\..\Rice.MongoFramework.ObjectConversion.pas',
   Rice.Example.Aluno.DAO in 'Rice.Example.Aluno.DAO.pas',
   Rice.Example.Nota.Domain in 'Rice.Example.Nota.Domain.pas',
-  Rice.MongoBuilder4D in '..\..\NoSQL4D\Rice.MongoBuilder4D.pas';
+  Rice.MongoBuilder4D in '..\..\MongoBuilder4D\Rice.MongoBuilder4D.pas';
 
 {$R *.res}
 

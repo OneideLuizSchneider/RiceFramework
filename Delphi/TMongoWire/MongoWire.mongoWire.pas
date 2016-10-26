@@ -2,12 +2,12 @@
 
 TMongoWire: mongoWire.pas
 
-Copyright 2010-2015 Stijn Sanders
+Copyright 2010-2016 Stijn Sanders
 Made available under terms described in file "LICENSE"
 https://github.com/stijnsanders/TMongoWire
 
 }
-{ 
+{
 
 Add NameSpace MongoWire by Oneide Luiz Schneider
 Date Update 25/05/2015
@@ -16,6 +16,7 @@ Date Update 25/05/2015
 unit MongoWire.mongoWire;
 
 {$D-}
+{$L-}
 
 interface
 
@@ -243,7 +244,8 @@ begin
   p.OpCode:=OpCode;
   p.Flags:=Flags;
   FData.Stream.Position:=20;//SizeOf first part of TMongoWireMsgHeader
-  if OpCode<>OP_KILL_CURSORS then DataCString(FNameSpace+'.'+Collection);
+  if OpCode<>OP_KILL_CURSORS then
+    DataCString(FNameSpace+'.'+Collection);
 end;
 
 function TMongoWire.CloseMsg(Data:TStreamAdapter):integer;
@@ -422,7 +424,8 @@ procedure TMongoWire.Update(const Collection: WideString; const Selector,
 var
   d:IBSONDocument;
 begin
-  if Doc=nil then raise EMongoException.Create('MongoWire.Update: Doc required');
+  if Doc=nil then
+    raise EMongoException.Create('MongoWire.Update: Doc required');
   d:=BSON(
     ['q',Selector
     ,'u',Doc
@@ -439,7 +442,8 @@ end;
 procedure TMongoWire.Insert(const Collection: WideString;
   const Doc: IBSONDocument);
 begin
-  if Doc=nil then raise EMongoException.Create('MongoWire.Insert: Doc required');
+  if Doc=nil then
+    raise EMongoException.Create('MongoWire.Insert: Doc required');
   RunCommand(BSON(
     ['insert',Collection
     ,'documents',VarArrayOf([Doc])
@@ -519,7 +523,7 @@ begin
     'ns', FNameSpace + '.' + Collection,
     'key', Index
   ]);
-  
+
   if (Options = nil) or (Options['name'] = Null) then begin
     Name := '';
     IndexArray := Index.ToVarArray;
@@ -673,7 +677,8 @@ function TMongoWireQuery.Next(const Doc: IBSONDocument): boolean;
 var
   i:integer;
 begin
-  if Doc=nil then EMongoException.Create('MongoWireQuery.Next: Doc required');
+  if Doc=nil then
+    raise EMongoException.Create('MongoWireQuery.Next: Doc required');
   if FPageIndex=FNumberReturned then
    begin
     if FCursorID=0 then
@@ -731,3 +736,4 @@ begin
 end;
 
 end.
+

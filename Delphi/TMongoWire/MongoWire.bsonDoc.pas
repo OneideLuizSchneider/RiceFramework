@@ -2,12 +2,12 @@
 
 TMongoWire: bsonDoc.pas
 
-Copyright 2010-2015 Stijn Sanders
+Copyright 2010-2016 Stijn Sanders
 Made available under terms described in file "LICENSE"
 https://github.com/stijnsanders/TMongoWire
 
 }
-{ 
+{
 
 Add NameSpace MongoWire by Oneide Luiz Schneider
 Date Update 25/05/2015
@@ -17,11 +17,12 @@ unit MongoWire.bsonDoc;
 
 {$WARN SYMBOL_PLATFORM OFF}
 {$D-}
+{$L-}
 
 interface
 
 uses
-  ComObj, ActiveX, SysUtils, WinTypes;
+  System.Win.ComObj, ActiveX, SysUtils, WinTypes;
 
 const
   //bsonElement
@@ -278,7 +279,7 @@ end;
 
 function TBSONDocument.IsDirty: HResult;
 begin
-  if FDirty then Result:=S_OK else Result:=S_FALSE; 
+  if FDirty then Result:=S_OK else Result:=S_FALSE;
 end;
 
 function TBSONDocument.Load(const stm: IStream): HResult;
@@ -323,7 +324,7 @@ var //outside of stmReadCString to recycle memory
     s:AnsiString;
   begin
     stmRead(@l,4);
-    if l=1 then s:='' else
+    if l<2 then s:='' else
      begin
       SetLength(s,l-1);
       stmRead(@s[1],l-1);
@@ -359,7 +360,11 @@ var //outside of stmReadCString to recycle memory
   {$ENDIF}
   function stmReadBSONDocument(ReuseDoc:boolean; var vv:OleVariant): boolean;
   var
+{$IFDEF VER310}
+    p1,p2:UInt64;
+{$ELSE}
     p1,p2:int64;
+{$ENDIF}
     d:TBSONDocument;
     dd:IBSONDocument;
   begin
@@ -389,7 +394,11 @@ var //outside of stmReadCString to recycle memory
   function stmReadBSONDocArray(const v:OleVariant): boolean;
   var
     e:IBSONDocumentEnumerator;
+{$IFDEF VER310}
+    p:UInt64;
+{$ELSE}
     p:int64;
+{$ENDIF}
     l:integer;
     n:WideString;
   begin
@@ -665,7 +674,11 @@ end;
 function TBSONDocument.Save(const stm: IStream;
   fClearDirty: BOOL): HResult;
 var
-  lstart,lx:Int64;
+{$IFDEF VER310}
+   lstart,lx:UInt64;
+{$ELSE}
+   lstart,lx:Int64;
+{$ENDIF}
   ltotal,li,xi:integer;
   procedure stmWrite(p:pointer;s:integer);
   var
@@ -712,7 +725,11 @@ var
   function TryWriteBSONDocument:boolean;
   var
     i:integer;
+{$IFDEF VER310}
+    ii,jj:UInt64;
+{$ELSE}
     ii,jj:int64;
+{$ENDIF}
     di:IBSONDocument;
   begin
     Result:=uu.QueryInterface(IID_IBSONDocument,di)=S_OK;
@@ -767,7 +784,11 @@ var
     IID_IStream:TGUID='{0000000C-0000-0000-C000-000000000046}';
   var
     i,j:integer;
+{$IFDEF VER310}
+    ii,jj:UInt64;
+{$ELSE}
     ii,jj:int64;
+{$ENDIF}
     ss:IStream;
     d:array[0..dSize-1] of byte;
   begin
@@ -801,7 +822,11 @@ var
     IID_IPersistStream:TGUID='{00000109-0000-0000-C000-000000000046}';
   var
     i,j:integer;
+{$IFDEF VER310}
+    ii,jj:UInt64;
+{$ELSE}
     ii,jj:int64;
+{$ENDIF}
     ps:IPersistStream;
   begin
     Result:=uu.QueryInterface(IID_IPersistStream,ps)=S_OK;
@@ -892,7 +917,7 @@ begin
         i:=bsonBinary;
         stmWrite(@i,1);
         stmWriteCString(key);
-        j:=VarArrayHighBound(v,1)-VarArrayLowBound(v,1);
+        j:=VarArrayHighBound(v,1)-VarArrayLowBound(v,1)+1;
         stmWrite(@j,4);
         i:=bsonBinaryGeneric;
         stmWrite(@i,1);
@@ -1182,7 +1207,7 @@ begin
      end
     else
      begin
-      if key='[' then raise Exception.Create('BSON builder: embedded document needs key at index '+IntToStr(i)); 
+      if key='[' then raise Exception.Create('BSON builder: embedded document needs key at index '+IntToStr(i));
       //value
       inc(i);
       if (VarType(x[i])=varOleStr) and (x[i]='[') then
@@ -1254,13 +1279,19 @@ end;
 
 function TBSONDocumentEnumerator.Next(const doc: IBSONDocument): boolean;
 var
-  p:int64;
+{$IFDEF VER310}
+  p,q:UInt64;
+{$ELSE}
+  p,q:int64;
+{$ENDIF}
 begin
   //TODO: detect dirty (deep!), then update into stream??
   if (FPosCurrent<0) or (FPosCurrent>=FPosIndex) then Result:=false else
    begin
-    OleCheck(FData.Seek(FPos[FPosCurrent],soFromBeginning,p));
+    OleCheck(FData.Seek(0,soFromCurrent,q));//keep
+    OleCheck(FData.Seek(FPos[FPosCurrent],soFromBeginning,p));//set
     (doc as IPersistStream).Load(FData);
+    OleCheck(FData.Seek(q,soFromBeginning,p));//restore
     inc(FPosCurrent);
     Result:=true;
    end;
@@ -1291,3 +1322,4 @@ begin
 end;
 
 end.
+
