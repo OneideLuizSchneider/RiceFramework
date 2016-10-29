@@ -1,9 +1,8 @@
 # RiceFramework
 
-O RiceFramework tem como Objetivo ajudar aqueles que desenvolvem algo para o MongoDB com o Delphi. Foi testado com as versões XE5, XE6, XE7 e Berlin 10.1
-Onde como driver foi usado o TMongoWire.
+The RiceFramework aims to help those who develop something for MongoDB with Delphi. It has been tested with versions XE5, XE6, XE7 and Berlin 10.1. Where as driver was used TMongoWire.
 
-Exemplos:
+Examples:
 
 **Classe TAluno**
 
