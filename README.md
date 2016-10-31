@@ -4,7 +4,7 @@ The RiceFramework aims to help those who develop something for MongoDB with Delp
 
 Examples:
 
-**Classe TAluno**
+**Class TAluno**
 
         [DocumentName('aluno')]
         TAluno = class(TGenericEntity)
