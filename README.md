@@ -27,7 +27,7 @@ Examples:
         end;
 
  **DAO** 
-        , que herda do genericDAO as opções de CRUD :
+       
         
         type
         TAlunoDAO = class(TGenericDAO)
