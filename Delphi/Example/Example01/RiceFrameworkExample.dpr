@@ -2,7 +2,7 @@ program RiceFrameworkExample;
 
 uses
   Vcl.Forms,
-  Rice.Example.View in 'Rice.Example.View.pas' {Form3},
+  Rice.Example.View in 'Rice.Example.View.pas' {FormMainTest},
   Rice.Example.Aluno.Domain in 'Rice.Example.Aluno.Domain.pas',
   MongoWire.bsonDoc in '..\..\TMongoWire\MongoWire.bsonDoc.pas',
   MongoWire.bsonUtils in '..\..\TMongoWire\MongoWire.bsonUtils.pas',
@@ -27,6 +27,6 @@ begin
   Application.Initialize;
   ReportMemoryLeaksOnShutdown := DebugHook <> 0;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TFormMainTest, FormMainTest);
   Application.Run;
 end.
